@@ -87,7 +87,7 @@ public class PaintTest {
         saveFile("Test picture");
     }
 
-    public void saveFile(String name) {
+    public void saveFile(String fileName) {
         paintSession.findElementByName("File tab").click();
         paintSession.findElementByName("Save as").click();
         try {
@@ -95,7 +95,7 @@ public class PaintTest {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        paintSession.findElementByAccessibilityId("FileNameControlHost").sendKeys("%TEMP%"+name);
+        paintSession.findElementByAccessibilityId("FileNameControlHost").sendKeys("%TEMP%"+fileName);
         try {
             paintSession.findElementByName("Save").click();
             paintSession.findElementByName("Confirm Save As").findElement(By.name("Yes")).click();
